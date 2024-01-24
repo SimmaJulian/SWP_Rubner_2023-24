@@ -11,13 +11,11 @@ def lotto(aufrufe, liste):
     max = 44 - aufrufe
     index = random.randint(0, max)
         
-    zufallszahl = liste[index]
-    liste[index] = liste[max]
-    liste[max] = zufallszahl
+    liste[max], liste[index] = liste[index], liste[max]
     
     #python tauschzeile einarbeiten
     
-    return zufallszahl
+    return liste[max]
 
 dict2 = {"Zahl":"Gezählte Anzahl der Zahl die zahlt"}
 
