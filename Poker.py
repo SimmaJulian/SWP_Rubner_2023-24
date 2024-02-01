@@ -1,13 +1,14 @@
-
 import random
 from collections import Counter
+from Decorators import zeitmessung
 
-
+@zeitmessung
 def main():
         
     karten = []
     kartenAnzahl = 52
 
+    @zeitmessung
     def kartenziehung():
         for i in range(kartenAnzahl):
             karten.append(i)
@@ -29,7 +30,6 @@ def main():
         mWerte.sort()
         count = Counter(mWerte)
         return count
-
 
     def paar(karten):
         count = zahl_ermitteln(karten)
