@@ -2,13 +2,13 @@ from functools import wraps
 import time
 
 def zeitmessung(func):
-    @wraps(func)                             # damit beim returnieren der ganzen methode die magic variablen erhalten bleiden oder so 
-    def wrapped_zeitmesser(*args, **kwargs): #(kw)args kommen von der func ind den Parametern der wrapper function
-                                             # args für listenartige Param. und kwargs für benannte Param. (= z.B. dicts) 
-        start_t = time.perf_counter()
+    @wraps(func)
+    def wrapped_zeitmesser(*args, **kwargs):
+
+        time1 = time.perf_counter()
         result = func(*args, **kwargs)
-        end_t = time.perf_counter()
-        whole_t = end_t - start_t
-        print(f'Die Funktion {func.__name__}{args} hat {whole_t:.6f} Sekunden gedauert')
+        time2 = time.perf_counter()
+        time_sum = time2 - time1
+        print(f'Die Funktion {func.__name__}{args} hat {time_sum:.6f} Sekunden gedauert')
         return result
     return wrapped_zeitmesser

@@ -1,6 +1,5 @@
-  
-    
 import random
+import requests
 
 def who_wins(player, pc):
     if player == 'scissors' and pc == 'paper' or pc == 'lizard':
@@ -35,12 +34,12 @@ def who_wins(player, pc):
 
 def player_choice():
     while (True):
-        print("\n--------------------------------------------------------------")
-        print("Rock     = 0")
-        print("Lizard   = 1")
-        print("Spock    = 2")
-        print("Scissors = 3")
-        print("Paper    = 4")
+        print("\n<><><><><><><><><><><><><><><><><><><><><>")
+        print("Rock ....... 0")
+        print("Lizard ..... 1")
+        print("Spock ...... 2")
+        print("Scissors ... 3")
+        print("Paper ...... 4")
         print("Eingabe: ")
         my_in = input()
     
@@ -66,7 +65,6 @@ def player_choice_string(choise):
         return 'scissors'
     if choise == 4:
         return 'paper'
-
 
 def game_continue():        
     while(True):
@@ -156,6 +154,9 @@ if __name__ == '__main__':
 
                 print('\n' + player_choice_str + ' --- ' + ai_choice_str)
                 print(result + " wins!\n")
+
+                response = requests.post('http://localhost:5000/post_player_choise', data={player_choice_str: 1})
+                print(response.text)
 
                 continue_playing = game_continue()
 

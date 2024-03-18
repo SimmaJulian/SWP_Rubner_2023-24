@@ -19,9 +19,7 @@ def main():
     anzZiehungen = 5
     zeihungen = 100000
         
-    #most_common_numbers = Counter([1, 5, 6, 5, 3, 1, 2, 5]).most_common(2)
-    #print(most_common_numbers)
-    # -> [(5, 3), (1, 2)]
+
 
     def zahl_ermitteln(karten):
         mWerte = []
@@ -183,7 +181,7 @@ def main():
                  high_card()
                 
     dict['high_card'] = 100000 - sum(dict.values())
-    #print(sum(dict.values()))
+    print(sum(dict.values()))
 
     for i in dict:
         dict[i] = (dict[i]*100)/100000
